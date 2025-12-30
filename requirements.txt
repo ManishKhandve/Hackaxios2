@@ -1,0 +1,23 @@
+# Backend Dependencies for Bureaucracy Breaker
+
+# FastAPI - Web framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+
+# PDF Processing
+PyPDF2==3.0.1
+
+# Image Processing
+Pillow==10.2.0
+
+# HTTP Requests
+requests==2.31.0
+
+# Data Validation
+pydantic==2.5.3
+
+# System monitoring (for health endpoint)
+psutil==5.9.8
+
+# PDF Generation (for non-fillable PDFs)
+reportlab==4.0.9
