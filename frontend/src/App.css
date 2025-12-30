@@ -866,6 +866,68 @@
   }
 }
 
+/* Radio Options (Multiple Choice from PDF) */
+.radio-options {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.radio-btn {
+  flex: 1;
+  min-width: 140px;
+  padding: 16px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(248, 250, 252, 0.6));
+  border: 2px solid rgba(203, 213, 225, 0.6);
+  color: #374151;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.radio-btn .radio-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(148, 163, 184, 0.8);
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.radio-btn:hover {
+  background: linear-gradient(135deg, rgba(219, 234, 254, 0.8), rgba(191, 219, 254, 0.7));
+  border-color: rgba(96, 165, 250, 0.8);
+  color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+}
+
+.radio-btn:hover .radio-circle {
+  border-color: rgba(59, 130, 246, 0.9);
+  background: rgba(219, 234, 254, 0.9);
+}
+
+.radio-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 480px) {
+  .radio-options {
+    flex-direction: column;
+  }
+  
+  .radio-btn {
+    min-width: 100%;
+  }
+}
+
 /* Image Upload Area */
 .image-upload-area {
   display: flex;

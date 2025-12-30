@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" fill="none">
+  <!-- Left vertical bar -->
+  <rect x="10" y="10" width="16" height="100" rx="8" fill="#00BFFF"/>
+  
+  <!-- Top right triangle -->
+  <path d="M35 10 L85 35 L35 60 Z" rx="8" fill="#00BFFF"/>
+  <path d="M45 25 L70 35 L45 47 Z" fill="white"/>
+  
+  <!-- Bottom right triangle -->
+  <path d="M35 60 L85 85 L35 110 Z" fill="#00BFFF"/>
+  <path d="M45 75 L70 85 L45 97 Z" fill="white"/>
+</svg>

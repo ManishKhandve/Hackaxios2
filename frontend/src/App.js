@@ -342,8 +342,20 @@ function App() {
   // Check question type for different input displays
   const isCheckboxQuestion = currentQuestion?.field_type === 'checkbox';
   const isChoiceQuestion = currentQuestion?.field_type === 'choice';
+  const isRadioGroupQuestion = currentQuestion?.field_type === 'radio_group';
   const isImageQuestion = currentQuestion?.field_type === 'image';
   const choiceOptions = currentQuestion?.options || [];
+  // For radio groups, extract labels from options - handle both object and string formats
+  const radioOptions = isRadioGroupQuestion && choiceOptions.length > 0 
+    ? choiceOptions.map(opt => typeof opt === 'object' ? (opt.label || opt.value) : opt) 
+    : [];
+  
+  // Debug logging for options
+  if (currentQuestion?.options) {
+    console.log('[DEBUG] Current question options:', currentQuestion.options);
+    console.log('[DEBUG] Field type:', currentQuestion.field_type);
+    console.log('[DEBUG] Radio options:', radioOptions);
+  }
 
   return (
     <div className="app-container">
@@ -517,7 +529,21 @@ function App() {
             </label>
           ) : currentSession && !isCompleted ? (
             <div className="input-wrapper">
-              {isChoiceQuestion && choiceOptions.length > 0 ? (
+              {isRadioGroupQuestion && radioOptions.length > 0 ? (
+                <div className="radio-options">
+                  {radioOptions.map((option, idx) => (
+                    <button 
+                      key={idx}
+                      className="radio-btn glass-button"
+                      onClick={() => handleSendMessage(option)}
+                      disabled={isLoading}
+                    >
+                      <span className="radio-circle"></span>
+                      <span>{option}</span>
+                    </button>
+                  ))}
+                </div>
+              ) : isChoiceQuestion && choiceOptions.length > 0 ? (
                 <div className="choice-options">
                   {choiceOptions.map((option, idx) => (
                     <button 

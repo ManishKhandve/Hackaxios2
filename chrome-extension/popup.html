@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bureaucracy Breaker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <img src="icons/logo.svg" alt="Logo" class="logo">
+      <h1>Bureaucracy Breaker</h1>
+      <p class="subtitle">AI-Powered Form Assistant</p>
+    </div>
+
+    <!-- Settings -->
+    <div class="settings-section">
+      <label for="api-url">Backend URL</label>
+      <input type="text" id="api-url" placeholder="http://localhost:8004" value="http://localhost:8004">
+      <button id="save-settings" class="btn-secondary">Save Settings</button>
+    </div>
+
+    <!-- Backend Status -->
+    <div class="status-section">
+      <div class="status-indicator" id="status-dot"></div>
+      <span id="status-text">Checking connection...</span>
+    </div>
+
+    <!-- AI Status -->
+    <div class="status-section ai-status" id="ai-status-section" style="display: none;">
+      <div class="status-indicator" id="ai-status-dot"></div>
+      <div class="ai-status-content">
+        <span id="ai-status-text">Checking AI...</span>
+        <span id="ai-status-details" class="ai-status-details"></span>
+      </div>
+      <button id="refresh-ai-status" class="btn-icon" title="Refresh AI Status">🔄</button>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button id="scan-form" class="btn-primary">
+        🔍 Scan Page for Forms
+      </button>
+      <button id="open-chat" class="btn-primary">
+        💬 Open Chat Assistant
+      </button>
+      
+      <!-- PDF Section -->
+      <div class="pdf-section">
+        <label for="pdf-upload" class="btn-primary" style="width: 100%; cursor: pointer;">
+          📄 Upload PDF Form
+        </label>
+        <input type="file" id="pdf-upload" accept="application/pdf" style="display: none;">
+        
+        <div id="pdf-summary" style="display: none; margin: 12px 0; padding: 14px;"></div>
+        
+        <button id="download-pdf" class="btn-success" style="display: none;">
+          ⬇️ Download Filled PDF
+        </button>
+        
+        <label for="image-upload" class="btn-secondary" style="width: 100%; margin-top: 10px; cursor: pointer;">
+          🖊️ Upload Signature/Image
+        </label>
+        <input type="file" id="image-upload" accept="image/*" style="display: none;">
+      </div>
+    </div>
+
+    <!-- Detected Fields -->
+    <div class="form-info" id="form-info" style="display: none;">
+      <h3>Detected Fields</h3>
+      <div id="field-list"></div>
+      <button id="start-filling" class="btn-success">
+        ✨ Start AI-Assisted Filling
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <a href="http://localhost:3000" target="_blank">Open Full Application →</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
